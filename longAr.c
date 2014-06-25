@@ -91,27 +91,26 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 //записываем числа в массив
-//это палево! надо исправлять
-	int b5 = 48;
+	int _const = 48;
 	if(argv[5] != NULL && strcmp(argv[5], "-b") == 0)
 	{
-	  b5 = 0;
+	  _const = 0;
 	}
 	fseek(fp_a, a.znak, SEEK_SET);
 	fseek(fp_b, b.znak, SEEK_SET);
 	for(long int i = a.lenth - 1; i >= 0; i--)
 	{
-	  a.mem[i] = fgetc(fp_a) - b5;
+	  a.mem[i] = fgetc(fp_a) - _const;
 	}
 	for(long int i = b.lenth - 1; i >= 0; i--)
 	{
-	  b.mem[i] = fgetc(fp_b) - b5;
+	  b.mem[i] = fgetc(fp_b) - _const;
 	}
 	if(fp_mod != NULL)
 	{
 	  for(long int i = mod.lenth - 1; i >= 0; i--)
 	  {
-	    mod.mem[i] = fgetc(fp_mod) - b5;
+	    mod.mem[i] = fgetc(fp_mod) - _const;
 	  }
 	}
 
