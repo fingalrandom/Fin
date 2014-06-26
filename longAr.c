@@ -1,6 +1,6 @@
 //longArithmetic
 //argv[1][уменьшаемое] 
-//argv[2][знак] 
+//argv[2][знак] a
 //argv[3][вычитаемое] 
 //argv[4][результат] 
 //argv[5][бинарный] 
@@ -20,6 +20,14 @@ class cur_new
 	cur_new();
     ~cur_new();
 };
+void _mul(cur_new &a, cur_new &b, cur_new &rez);
+int _div(cur_new &a, cur_new &b, cur_new &rez, long int maxlen);
+int _mod(cur_new &a, cur_new &b, long int maxlen);
+int _cmp(cur_new &a, cur_new &b, long int m);
+int _sum(cur_new &a, cur_new &b, long int maxlen);
+int _sup(cur_new &a, cur_new &b, cur_new &rez, cur_new &mod);
+int _sup_sup(cur_new &b);
+int _save(cur_new &rez, const char *oper, char *filerez, char *bin);
 
 int main(int argc, char* argv[])
 {
