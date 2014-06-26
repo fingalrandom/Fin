@@ -427,7 +427,7 @@ int _sup_sup(cur_new &b)
 int _save(cur_new &rez, const char *oper, char *filerez, char *bin)
 {
 	char ch;
-	long int t;
+	long int t,i;
 	int _const;
 	FILE *fp;
 	if(strcmp(bin, "-b") == 0)
@@ -452,17 +452,18 @@ int _save(cur_new &rez, const char *oper, char *filerez, char *bin)
 	if(strcmp(oper, "/") == 0)
 	{
 		t = 0;
-		for(long int i = 0; i  < rez.lenth; i++)
+		for(i = 0; i  < rez.lenth; i++)
 		{
 			if(rez.mem[i] == 0)
 			{
 				t++;
 			}
+			else 
+			{
+				break;
+			}
 		}
-		else 
-		{
-			break;
-		}
+	}
 		if(t == rez.lenth)
 		{
 			t--;
@@ -472,25 +473,24 @@ int _save(cur_new &rez, const char *oper, char *filerez, char *bin)
 		{
 			fprintf(fp, "-");
 		}
-		for(long int i = t; i < rez.lenth; i++)
+		for(i = t; i < rez.lenth; i++)
 		{
 			ch = rez.mem[i] + 48 - _const;
 			fprintf(fp, "%c", ch);
 		}
 		return 0;
-	}
-
+	
 	t = rez.lenth;
-	for(long int i = rez.lenth; i > 0; i--)
+	for(i = rez.lenth; i > 0; i--)
 	{
 		if(rez.mem[i] == 0)
 		{
 			t--;
 		}
-	}
-	else 
-	{
-		break;
+		else 
+		{
+			break;
+		}
 	}
 	if(t == 0) 
 	{
@@ -500,7 +500,7 @@ int _save(cur_new &rez, const char *oper, char *filerez, char *bin)
 	{
 		fprintf(fp, "-");
 	}
-	for(long int i = t; i >= 0; i--)
+	for(i = t; i >= 0; i--)
 	{
 		ch = rez.mem[i] + 48 - _const;
 		fprintf(fp, "%c", ch);
